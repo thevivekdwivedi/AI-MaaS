@@ -1,0 +1,35 @@
+.loading {
+    opacity: 0.5;
+    transition: opacity .8s ease-in-out;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 2;
+}
+.load {
+    margin-top: 25%;
+}
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+.progress {
+    margin: 15px;
+}
+
+.progress .progress-bar.active {
+    font-weight: 700;
+    animation: progress-bar-stripes .5s linear infinite;
+}
+
+.dotdotdot:after {
+    font-weight: 300;
+    content: '...';
+    display: inline-block;
+    width: 20px;
+    text-align: left;
+    animation: dotdotdot 1.5s linear infinite;
+}

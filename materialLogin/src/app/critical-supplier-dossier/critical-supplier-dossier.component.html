@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row vertical-align">
+      <div class="col-md-6">
+        <div style="display: block" >
+           <canvas *ngIf="polarAreaChartData" baseChart
+                  [data]="polarAreaChartData"
+                  [labels]="polarAreaChartLabels"
+                  [legend]="polarAreaLegend"
+                  [chartType]="polarAreaChartType"
+                  [options]="polarAreaOptions"></canvas> 
+        </div>
+      </div>
+      <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <table class="table table-stripted">
+                  <thead>
+                    <tr>
+                      <th>Supplier Industry</th>
+                      <th>Supplier #</th>
+                      <th>Network Match</th>
+                      <th>Match %</th>
+                    </tr>
+                  </thead>
+                  <tr *ngFor="let supplier of criticalMatches">
+                    <td> {{supplier.industry}} </td>
+                    <td> {{supplier.match + supplier.noMatch}} </td>
+                    <td> {{supplier.match}} </td>
+                    <td> {{supplier.matchPercentage}} </td>
+                </table>
+              </div>
+            </div>
+      </div>
+  </div>
+  <div class="panel-footer footer">
+    <h3>{{matchPercentage}}% of your Critical Suppliers are already a match on the Ariba Network</h3>
+  </div>
+</div>

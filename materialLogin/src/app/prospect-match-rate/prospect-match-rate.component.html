@@ -1,0 +1,109 @@
+<div class="container">
+  <div class="row">
+    <div class="form-group">
+      <label for="sel1">Select Prospect:</label>
+      <select class="form-control" id="sel1" [(ngModel)]="prospect" name="prospects" (change)="refreshEnablement()">
+        <option *ngFor="let prospect of plisting">{{prospect}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row" *ngIf="showTable">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Supplier Match List</h3>
+        </div>
+        <div class="panel-body">
+          <div class="panel-body">
+            <table class="table">
+            <thead>
+              <tr>
+                <th>Supplier Name</th>
+                <th>Currently Matched</th>
+              </tr>
+            </thead>
+            <tbody >
+              <tr *ngFor="let a of supplierList">
+                <td>{{a.Supplier}}</td>
+                <td>{{a.Match_Current_Status}}</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Coverage Stats</h3>
+        </div>
+         <div class="panel-body"> 
+          <table class="" style="width:100%">
+            <thead>
+              <tr class="vertical-align">
+                <td>Supplier Coverage: </td>
+                <td><h4>{{countI}}%</h4></td>
+                <td>
+                  <div style="display: block">
+                    <canvas baseChart
+                            [data]="supplierCoverageData"
+                            [labels]="pieChartLabels"
+                            [chartType]="pieChartType"></canvas>
+                  </div>
+                </td>
+              </tr>
+              <hr>
+              <tr class="vertical-align">
+                <td>Spend Coverage</td>
+                <td><h4>{{spendI}}%</h4></td>
+                <td>
+                  <div style="display: block">
+                    <canvas baseChart
+                            [data]="spendCoverageData"
+                            [labels]="pieChartLabels"
+                            [chartType]="pieChartType"></canvas>
+                  </div>
+                </td>
+              </tr>
+              <hr>
+              <tr>
+                <th><h4>Spend Covered</h4></th>
+                <th><h3>{{matchDetails.tSpend/1000000 | currency: 'USD':true}}M</h3></th>
+              </tr>
+              <hr>
+              <tr class="vertical-align">
+                <td>Purchase Order Coverage</td>
+                <td>{{poI}}%</td>
+                <td>
+                  <div style="display: block">
+                    <canvas baseChart
+                            [data]="poCoverageData"
+                            [labels]="pieChartLabels"
+                            [chartType]="pieChartType"></canvas>
+                  </div>
+                </td>
+              </tr>
+              <hr>
+              <tr class="vertical-align">
+                <td>Invoice Coverage</td>
+                <td>{{invoiceI}}%</td>
+                <td>
+                  <div style="display: block">
+                    <canvas baseChart
+                            [data]="invoiceCoverageData"
+                            [labels]="pieChartLabels"
+                            [chartType]="pieChartType"></canvas>
+                  </div>
+                </td>
+              </tr>
+            </thead>
+          </table>
+         </div> 
+        <div class="panel-footer">
+          Since {{matchDetails.Month}}, {{matchDetails.Year}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

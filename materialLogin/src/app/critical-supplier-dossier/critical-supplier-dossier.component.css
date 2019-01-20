@@ -1,0 +1,10 @@
+.graph {
+    margin-bottom: 2rem;
+}
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+.footer {
+    margin-top: 2rem;
+}

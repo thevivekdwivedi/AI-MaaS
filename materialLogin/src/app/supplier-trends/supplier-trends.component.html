@@ -1,0 +1,77 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row vertical-align">
+      <div class="col-md-6">
+        <div style="display: block;">
+          <canvas baseChart *ngIf="important"
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType"></canvas>
+        </div>
+        
+      </div>
+      <div class="col-md-6">
+        <div style="display: block;">
+          <canvas baseChart *ngIf="important"
+                      [datasets]="lineChartData"
+                      [labels]="lineChartLabels"
+                      [options]="lineChartOptions"
+                      [colors]="lineChartColors"
+                      [legend]="lineChartLegend"
+                      [chartType]="lineChartType"></canvas>
+        </div>
+            
+      </div>
+  </div>
+    <div class="row vertical-align">
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+    <h2 class="panel-title">Supplier Count</h2>
+  </div>
+              <div class="panel-body">
+                <table class="table table-stripted">
+                  <thead *ngIf="important">
+                    <tr>
+                      <th>Important</th>
+                      <th>Medium</th>
+                      <th>Quick Win</th>
+                      <th>Small</th>
+                    </tr>
+                    <tr>
+                      <td>{{count[0]}}</td>
+                      <td>{{count[1]}}</td>
+                      <td>{{count[2]}}</td>
+                      <td>{{count[3]}}</td>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+      </div>
+      <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <table class="table table-stripted">
+                  <thead *ngIf="important">
+                    <tr>
+                      <th>Main Procurement Workload</th>
+                      <th>{{important.Spend/1000000 | currency: 'USD': true}}M</th>
+                    </tr>
+                    <tr>
+                      <th>Suppliers Already on Ariba</th>
+                      <th>{{count[2]}}</th>
+                    </tr>
+                    <tr>
+                      <th>Suppliers to Control Spend</th>
+                      <th>{{count[0]}}</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+      </div>
+  </div>
+</div>

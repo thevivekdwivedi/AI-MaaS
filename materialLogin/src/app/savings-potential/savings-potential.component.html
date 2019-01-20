@@ -1,0 +1,60 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row vertical-align">
+      <div class="col-md-6">
+        <div style="display: block">
+          <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType"></canvas>
+        </div>
+      </div>
+      <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <table class="table table-stripted">
+                  <thead>
+                    <tr>
+                      <th>Compliance Savings</th>
+                      <th>Amount</th>
+                      <th>Process Improvement Savings</th>
+                      <th>Amount</th>
+                      <th>Total Savings Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td> Supplier Compliance</td>
+                      <td> {{Supplier_Compliance_Savings/1000000 | currency: 'USD' : true}}M </td>
+                      <td> PO Processing </td>
+                      <td> {{PO_Requisition_Transmission_Savings/1000000 | currency: 'USD' : true}}M </td>
+                      <td> {{(Supplier_Compliance_Savings + PO_Requisition_Transmission_Savings)/1000000 | currency: 'USD' : true}}M</td>
+                    </tr>
+                    <tr>
+                      <td> Invoice Error Reduction</td>
+                      <td> {{Invoice_Error_Reductions_Savings/1000000 | currency: 'USD' : true}}M </td>
+                      <td> Invoice Receipt </td>
+                      <td> {{Invoice_Receipt_Processing_Savings/1000000 | currency: 'USD' : true}}M </td>
+                      <td> {{(Invoice_Error_Reductions_Savings + Invoice_Receipt_Processing_Savings)/1000000 | currency: 'USD' : true}}M</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr class="success">
+                      <td> Total </td>
+                      <td> {{(Invoice_Error_Reductions_Savings + Supplier_Compliance_Savings)/1000000 | currency: 'USD' : true}}M </td>
+                      <td>  </td>
+                      <td> {{(Invoice_Receipt_Processing_Savings + PO_Requisition_Transmission_Savings)/1000000 | currency: 'USD' : true}}M </td>
+                      <td> {{(Invoice_Error_Reductions_Savings + Invoice_Receipt_Processing_Savings + Supplier_Compliance_Savings + PO_Requisition_Transmission_Savings)/1000000 | currency: 'USD' : true}}M</td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+            
+      </div>
+          
+  </div>
+    <h4>{{matchPercentage}}% of your suppliers are already on our network</h4>
+</div>

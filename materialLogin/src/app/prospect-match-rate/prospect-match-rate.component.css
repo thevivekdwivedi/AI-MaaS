@@ -1,0 +1,9 @@
+
+.panel-body {
+    max-height: 65rem;
+    overflow-y: auto;
+}
+.vertical-align {
+    display: flex;
+    align-items: center;
+}

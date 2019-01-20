@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="form-group">
+      <label for="sel1">Select Prospect:</label>
+      <select class="form-control" id="sel1" [(ngModel)]="prospect" name="prospects" (change)="refreshEnablement()">
+        <option *ngFor="let prospect of plisting">{{prospect}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Supplier Name</th>
+          <th>Enablement Priority</th>
+          <th>SMP</th>
+          <th *ngIf="!usingSpecific">Prospect Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let supplier of enablements">
+          <td>{{supplier.Supplier}}</td>
+          <td>{{supplier.Strategy}}</td>
+          <td>{{supplier.SMP}}</td>
+          <td *ngIf="!usingSpecific">{{supplier.Prospects}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

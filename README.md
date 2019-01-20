@@ -5,8 +5,8 @@ As this project was developed aroud a novel code that isn't protected by law, it
 
 Stack:
 MySQL,
-SequelizeJS
-Express
-Node.js
-Angular2
+SequelizeJS,
+Express,
+Node.js,
+Angular2,
 Chart.js
